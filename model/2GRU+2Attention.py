@@ -385,7 +385,6 @@ for i, (train_idx, valid_idx) in enumerate(splits):
     test_preds += test_preds_fold / len(splits) 
 
 search_result = threshold_search(train_y, train_preds)
-
 sub = pd.read_csv('../input/sample_submission.csv')
 sub.prediction = test_preds > search_result['threshold']
 sub.to_csv("submission.csv", index=False)
